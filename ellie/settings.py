@@ -130,10 +130,23 @@ TH_SERVICES = (
 )
 
 TH_GITHUB = {
-    'username': 'lgliducik@gmail.com',
-    'password': 'education123',
-    'consumer_key': '4c8afa854f17c379240e',
-    'consumer_secret': 'de2ed4f7e5018de31cb458d25d60c8a3b7abfb0f'
+    # 'username': 'lgliducik',
+    # 'password': 'education123',
+    # 'consumer_key': '4c8afa854f17c379240e',
+    # 'consumer_secret': 'de2ed4f7e5018de31cb458d25d60c8a3b7abfb0f'
+}
+
+DJANGO_TH = {
+    # paginating
+    'paginate_by': 5,
+
+    # this permits to avoid "flood" effect when publishing
+    # to the target service - when limit is reached
+    # the cache is kept until next time
+    # set it to 0 to drop that limit
+    'publishing_limit': 0,
+    # number of process to spawn from multiprocessing.Pool
+    'processes': 5,
 }
 
 TH_ELLIE = {

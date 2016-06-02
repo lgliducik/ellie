@@ -11,6 +11,7 @@ from django.utils.log import getLogger
 # django_th classes
 from django_th.services.services import ServicesMgr
 from django_th.models import UserService, ServicesActivated
+from django.core.cache import caches
 
 """
     handle process with dummy
@@ -33,7 +34,25 @@ logger = getLogger('django_th.trigger_happy')
 
 class ServiceEllie(ServicesMgr):
 
-    pass
+    def process_data(self, trigger_id):
+        """
+            get the data from the cache
+            :param trigger_id: trigger ID from which to save data
+            :type trigger_id: int
+        """
+        cache = caches["th_ellie"]
+        datas = cache.get('tasks')
+        #print('!!!!!!!!!!type(datas) =', type(datas))
+        #print('!!!!!!!!!!datas =', datas)
+        #datas = ['task1', 'task2']
+        # return [{'title':'task1', 'description':'task1'},{'title':'task2', 'description':'task2'}]
+
+        l = []
+        for i in datas:
+            l.append({'title': i, 'description': i})
+        print(l)
+        #return [{'title':datas, 'description':datas}]
+        return l
 
     # def __init__(self, ):
     #     pass

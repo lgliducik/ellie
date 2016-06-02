@@ -11,7 +11,8 @@ class Ellie(Services):
     trigger = models.ForeignKey('TriggerService')
 
     class Meta:
-        app_label = 'django_th1'
+        app_label = 'django_th'
+        db_table = 'django_th_ellie'
 
     def __str__(self):
         return "%s" % (self.name)
