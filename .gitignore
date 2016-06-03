@@ -3,3 +3,4 @@ db.sqlite3
 *.pyc
 th_ellie_cache
 th_github_cache
+credentials
