@@ -43,20 +43,18 @@ urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     #url(r'', include('th_github.urls')),
     url(r"^th/callbackgithub/$",
-                 "django_th.views_wizard.finalcallback",
-                 {'service_name': 'ServiceGithub', },
-                 name="github_callback",
-                 ),
+        "django_th.views_wizard.finalcallback",
+        {'service_name': 'ServiceGithub', },
+        name="github_callback"),
     url(r"^th/callbackellie/$",
-                 "django_th.views_wizard.finalcallback",
-                 {'service_name': 'ServiceEllie', },
-                 name="ellie_callback",
-                 ),
+        "django_th.views_wizard.finalcallback",
+        {'service_name': 'ServiceEllie', },
+        name="ellie_callback"),
     url(r'^th/send_name_to_github/$', views.send_name_to_github),
 
-
-    url(r'^jsreverse/$', 'django_js_reverse.views.urls_js',
-          name='js_reverse'),
+    url(r'^jsreverse/$',
+        'django_js_reverse.views.urls_js',
+        name='js_reverse'),
     # ****************************************
     # admin module
     # ****************************************
@@ -150,7 +148,7 @@ urlpatterns = [
     # every service will use django_th.views.finalcallback
     # and give the service_name value to use to
     # trigger the real callback
-    
+
     url(r"^th/callbackgithub/$",
         "django_th.views_wizard.finalcallback",
         {'service_name': 'ServiceGithub', },

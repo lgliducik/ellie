@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseNotAllowed
+from django.http import (HttpResponse, HttpResponseBadRequest,
+                         HttpResponseNotAllowed)
 
 from django.core.cache import caches
 import json
- 
 
 
 def save_to_cache(obj):
@@ -22,7 +22,6 @@ def save_to_cache(obj):
 # Create your views here.
 def send_name_to_github(request):
     if request.method == 'POST':
-        #import pdb;pdb.set_trace()
         try:
             task = json.loads(request.body.decode('utf-8'))
         except ValueError:
@@ -31,10 +30,12 @@ def send_name_to_github(request):
         if not isinstance(task, dict):
             return HttpResponseBadRequest("body is not dict")
         if "title" not in task.keys() or "description" not in task.keys():
-            return HttpResponseBadRequest('body has not keys "title", "description"')
-        if not isinstance(task["title"], str) or not isinstance(task["description"], str):
-            return HttpResponseBadRequest('"title" and "description" fields must be strings')
-        
+            return HttpResponseBadRequest(
+                'body has not keys "title", "description"')
+        if (not isinstance(task["title"], str) or
+                not isinstance(task["description"], str)):
+            return HttpResponseBadRequest(
+                '"title" and "description" fields must be strings')
         save_to_cache(task)
 
         return HttpResponse("Task  %s." % task)

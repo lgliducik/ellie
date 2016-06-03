@@ -44,8 +44,9 @@ class ServiceEllie(ServicesMgr):
         datas = cache.get('tasks')
         if not datas:
             return []
-        #datas  [{"title": title, "description": description}, {"title": title, "description": description}]
+        #datas  [{"title": "title1", "description": "description1"},
+        #        {"title": "title2", "description": "description2"}]
         l = []
         for i in datas:
-           l.append(i)
+            l.append(i)
         return l

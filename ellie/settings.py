@@ -42,22 +42,8 @@ INSTALLED_APPS = (
     'django_js_reverse',
     'django_th',
     'th_ellie',
-    #'th_rss',
-    # uncomment the lines to enable the service you need
-    # 'th_pocket',
-    # 'th_readability',
-    # 'evernote',
-    # 'th_evernote',
-    # 'th_twitter',
-    # 'th_holidays',
-    # 'th_trello',
     'th_github',
-    # 'haystack',  # mandatory  if you plan to use th_search
-    # 'th_search', # then follow instructions from http://django-haystack.readthedocs.org/
-    # 'th_pelican',
-    # 'th_wallabag',
 )
-
 
 
 MIDDLEWARE_CLASSES = (
@@ -122,8 +108,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-
-
 TH_SERVICES = (
     'th_github.my_github.ServiceGithub',
     'th_ellie.ellie.ServiceEllie',
@@ -182,16 +166,4 @@ CACHES = {
             'MAX_ENTRIES': 1000
         }
     },
-    # # GitHub
-    # 'th_github':
-    # {
-    #     'TIMEOUT': 3600,
-    #     "BACKEND": "django_redis.cache.RedisCache",
-    #     "LOCATION": "redis://127.0.0.1:6379/7",
-    #     "OPTIONS": {
-    #         "CLIENT_CLASS": "django_redis.client.DefaultClient",
-    #     }
-    # },
 }
-
-

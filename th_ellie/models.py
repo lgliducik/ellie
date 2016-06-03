@@ -1,9 +1,6 @@
 from django.db import models
-
-# django_th classes
-#from django_th.services.services import ServicesMgr
-#from django_th.models import UserService, ServicesActivated
 from django_th.models.services import Services
+
 
 class Ellie(Services):
 
