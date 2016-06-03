@@ -114,10 +114,10 @@ TH_SERVICES = (
 )
 
 TH_GITHUB = {
-    'username': 'lgliducik',
-    'password': 'education123',
-    'consumer_key': '4c8afa854f17c379240e',
-    'consumer_secret': 'de2ed4f7e5018de31cb458d25d60c8a3b7abfb0f'
+    'username': '',
+    'password': '',
+    'consumer_key': '',
+    'consumer_secret': ''
 }
 
 DJANGO_TH = {
