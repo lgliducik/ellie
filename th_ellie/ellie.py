@@ -42,41 +42,8 @@ class ServiceEllie(ServicesMgr):
         """
         cache = caches["th_ellie"]
         datas = cache.get('tasks')
-        #print('!!!!!!!!!!type(datas) =', type(datas))
-        #print('!!!!!!!!!!datas =', datas)
-        #datas = ['task1', 'task2']
-        # return [{'title':'task1', 'description':'task1'},{'title':'task2', 'description':'task2'}]
-
         l = []
+        # TODO: support difference description and title
         for i in datas:
-            l.append({'title': i, 'description': i})
-        print(l)
-        #return [{'title':datas, 'description':datas}]
+           l.append({'title': i, 'description': i})
         return l
-
-    # def __init__(self, ):
-    #     pass
-
-    
-    # def auth(self, request):
-    #     """
-    #         let's auth the user to the Service
-    #     """
-    #     # request_token = super(ServiceEllie, self).auth(request)
-    #     # callback_url = self.callback_url(request, 'ellie')
-
-    #     # # URL to redirect user to, to authorize your app
-    #     # auth_url_str = '%s?oauth_token=%s&oauth_callback=%s'
-    #     # auth_url = auth_url_str % (self.AUTH_URL,
-    #     #                            request_token['oauth_token'],
-    #     #                            callback_url)
-
-    #     return True
-
-    # def callback(self, request):
-    #     """
-    #         Called from the Service when the user accept to activate it
-    #     """
-    #     kwargs = {'access_token': '', 'service': 'ServiceEllie',
-    #               'return': 'ellie'}
-    #     return super(ServiceEllie, self).callback(request, **kwargs)

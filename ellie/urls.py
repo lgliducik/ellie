@@ -52,7 +52,7 @@ urlpatterns = [
                  {'service_name': 'ServiceEllie', },
                  name="ellie_callback",
                  ),
-    url(r'^th/send_name_to_github/(?P<proj_name>\w+)$', views.send_name_to_github),
+    url(r'^th/send_name_to_github/$', views.send_name_to_github),
 
 
     url(r'^jsreverse/$', 'django_js_reverse.views.urls_js',
