@@ -42,8 +42,10 @@ class ServiceEllie(ServicesMgr):
         """
         cache = caches["th_ellie"]
         datas = cache.get('tasks')
+        if not datas:
+            return []
+        #datas  [{"title": title, "description": description}, {"title": title, "description": description}]
         l = []
-        # TODO: support difference description and title
         for i in datas:
-           l.append({'title': i, 'description': i})
+           l.append(i)
         return l

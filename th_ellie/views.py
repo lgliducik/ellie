@@ -26,17 +26,17 @@ def send_name_to_github(request):
         try:
             task = json.loads(request.body.decode('utf-8'))
         except ValueError:
-            return HttpResponseBadRequest()
+            return HttpResponseBadRequest("body must be json object")
 
         if not isinstance(task, dict):
-            return HttpResponseBadRequest()
+            return HttpResponseBadRequest("body is not dict")
         if "title" not in task.keys() or "description" not in task.keys():
-            return HttpResponseBadRequest()
+            return HttpResponseBadRequest('body has not keys "title", "description"')
         if not isinstance(task["title"], str) or not isinstance(task["description"], str):
-            return HttpResponseBadRequest()
+            return HttpResponseBadRequest('"title" and "description" fields must be strings')
         
-        save_to_cache(json.loads(request.body.decode('utf-8')))
+        save_to_cache(task)
 
-        return HttpResponse("Task  %s." % request.body.decode('utf-8'))
+        return HttpResponse("Task  %s." % task)
     else:
         return HttpResponseNotAllowed(["POST"])
